@@ -1,0 +1,51 @@
+{
+	"name": "@gethydra/sdk",
+	"version": "0.1.1",
+	"description": "Official TypeScript SDK for the Hydra Commerce API",
+	"license": "MIT",
+	"author": "Grant Capital Group",
+	"homepage": "https://hydrajs.dev/docs",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Hydra-headless-commerce/sdk.git",
+	},
+	"keywords": [
+		"hydra",
+		"commerce",
+		"ecommerce",
+		"headless",
+		"api",
+		"sdk"
+	],
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"./webhooks": {
+			"import": "./dist/webhooks.js",
+			"types": "./dist/webhooks.d.ts"
+		}
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"generate": "bun run scripts/generate-types.ts",
+		"build": "tsup src/index.ts src/webhooks.ts --format esm --dts --clean",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"openapi-typescript": "^7.6.1",
+		"tsup": "^8.4.0",
+		"typescript": "^5.8.3",
+		"vitest": "^4.1.11"
+	}
+}
